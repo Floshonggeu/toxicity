@@ -1,9 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('pklpk') {
+    stage('docker up') {
       steps {
-        echo 'sheesh'
+        bat 'docker-compose up --build'
+      }
+    }
+
+    stage('print success') {
+      steps {
+        echo 'sheeeesh it worked properly'
+      }
+    }
+
+    stage('docker down') {
+      steps {
+        bat 'docker-compose down'
       }
     }
 

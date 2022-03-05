@@ -64,26 +64,26 @@
     <div class="container mt-5">
       <div class="centered">
         <div class="text-center text-white">
-          <title>sentiment analysis app</title>
+          <title>Toxicity classifier app</title>
         </div>
-        <h1 class="header">Sentiment Analysis App</h1>
+        <h1 class="header">Toxicity classifier app</h1>
 
         <p class="desc">
-          Type a sentence, click on the submit button and wait for your prediction.
+          Type a sentence, click on the submit button and wait for your  toxicity prediction.
         </p>
 
         <form method="POST" onSubmit="return validate();" class="form">
           <div class="form-div">
             <input type="text" name="text" class="form-control mr-2" />
             <button type="submit" class="btn btn-outline-primary" onclick="this.form.submit();">
-              Submit
+              Submit your phrase
             </button>
           </div>
         </form>
         <br />
-        <br />
+        <br />s
 
-        <p id="demo">{{ variable }}</p>
+        <p id="demo">result will be print here</p>
       </div>
     </div>
   </body>

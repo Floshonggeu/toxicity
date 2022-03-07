@@ -1,11 +1,15 @@
+
 import os 
 
 from logging import error
 from flask import Flask,request,jsonify,render_template
 #from werkzeug.utils import html
-import nltk
-nltk.download('vader_lexicon')
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+#import nltk
+#nltk.download('vader_lexicon')
+#from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+from detoxify import Detoxify
 
 
 #import template
@@ -26,21 +30,24 @@ def web_page():
 def sentiment_scores():
     text = request.form['text']
 
-    sid_obj = SentimentIntensityAnalyzer()
+    predictor = Detoxify('original')
+    resultat = predictor.predict(str(text))
+
+    #sid_obj = SentimentIntensityAnalyzer()
             # polarity_scores method of SentimentIntensityAnalyzer
             # object gives a sentiment dictionary.
             # which contains pos, neg, neu, and compound scores.
-    sentiment_dict = sid_obj.polarity_scores(str(text))
+    #sentiment_dict = sid_obj.polarity_scores(str(text))
             
             # decide sentiment as positive, negative and neutral
-    if sentiment_dict['compound'] >= 0.05 :
-        resultat = " Positive"
+    #if sentiment_dict['compound'] >= 0.05 :
+        #resultat = " Positive"
         
-    elif sentiment_dict['compound'] <= - 0.05 :
-        resultat = " Negative"
+    #elif sentiment_dict['compound'] <= - 0.05 :
+        #resultat = " Negative"
         
-    else:
-        resultat = "Neutral"      
+    #else:
+        #resultat = "Neutral"      
           
     return(render_template('index.html', variable = resultat))
 

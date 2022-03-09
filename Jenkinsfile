@@ -14,19 +14,8 @@ pipeline {
     }
 
     stage('docker down') {
-      parallel {
-        stage('docker down') {
-          steps {
-            bat 'docker-compose down'
-          }
-        }
-
-        stage('test3') {
-          steps {
-            bat 'docker-compose down'
-          }
-        }
-
+      steps {
+        bat 'docker-compose down'
       }
     }
 

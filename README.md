@@ -1,4 +1,4 @@
-### Sentiment web app project
+### Detoxifier app
 
 ==============================================
 
